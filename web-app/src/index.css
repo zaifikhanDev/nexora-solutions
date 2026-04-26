@@ -1,0 +1,220 @@
+:root {
+    /* Primary Brand Colors */
+    --navy-deep:    #020B18;   /* Page background */
+    --navy-mid:     #05152B;   /* Card / section background */
+    --navy-card:    #071E38;   /* Hover state card bg */
+    --blue-deep:    #0A2540;   /* Subtle surface */
+
+    /* Accent / Brand Cyan */
+    --cyan:         #00D4FF;   /* Primary accent, borders, icons */
+    --cyan-bright:  #00EEFF;   /* Highlight shimmer */
+    --cyan-dim:     #0099CC;   /* Button gradient start */
+
+    /* Brand Blue */
+    --blue:         #1A6FFF;   /* Gradient end */
+    --blue-mid:     #0D4BCC;   /* Button gradient end */
+
+    /* Text */
+    --text-primary: #F0F8FF;   /* Headings, body */
+    --text-muted:   #7BA3C8;   /* Subtitles, descriptions */
+
+    /* Borders */
+    --border:       rgba(0, 212, 255, 0.15);   /* Default border */
+    --border-hover: rgba(0, 212, 255, 0.40);   /* Hover border */
+
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--navy-deep);
+}
+
+body {
+    font-family: 'Rajdhani', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--navy-deep);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .orbitron {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.mono {
+    font-family: 'Space Mono', monospace;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Button System - Clipped Geometry */
+.btn {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.85rem; 
+    font-weight: 700;
+    letter-spacing: 0.15em; 
+    text-transform: uppercase;
+    padding: 0.9rem 2.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+    border: none;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    position: relative;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--cyan-dim), var(--blue-mid));
+    color: white;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, var(--cyan), var(--blue));
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--cyan);
+    border: 2px solid var(--cyan);
+}
+
+.btn-outline:hover {
+    background: rgba(0, 212, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+/* Section Header Styles */
+.section-tag {
+    font-family: 'Space Mono', monospace;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+}
+
+.section-title span {
+    background: linear-gradient(90deg, var(--cyan), var(--blue), var(--cyan-bright));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+    to { background-position: 200% center; }
+}
+
+/* Background Pattern - Senior Design Elevation */
+.hero-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Layer 1: Refined Dot Matrix */
+    background-image: radial-gradient(var(--cyan) 1px, transparent 1px);
+    background-size: 40px 40px;
+    /* Layer 2: Radial Mask for Depth (Fades out edges) */
+    mask-image: radial-gradient(circle at 50% 40%, black, transparent 90%);
+    -webkit-mask-image: radial-gradient(circle at 50% 40%, black, transparent 90%);
+    
+    opacity: 0.15;
+    z-index: 0;
+    animation: pattern-pulse 10s ease-in-out infinite;
+}
+
+/* Texture Overlay for Premium Feel */
+.hero-grid::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.1) 3px,
+        transparent 3px
+    );
+    pointer-events: none;
+}
+
+@keyframes pattern-pulse {
+    0%, 100% { opacity: 0.12; transform: scale(1); }
+    50% { opacity: 0.20; transform: scale(1.02); }
+}
+
+/* Radial Glows */
+.glow-tr {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.glow-bl {
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(26, 111, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Pulsing Dot */
+.pulsing-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--cyan);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+/* Custom Selection */
+::selection {
+    background: var(--cyan);
+    color: var(--navy-deep);
+}
