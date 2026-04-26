@@ -14,6 +14,7 @@ const Hero = () => {
             alignItems: 'center'
         }}>
             {/* Background Layers */}
+            <AsciiCube />
             <div className="hero-grid"></div>
             <div className="glow-tr"></div>
             <div className="glow-bl"></div>

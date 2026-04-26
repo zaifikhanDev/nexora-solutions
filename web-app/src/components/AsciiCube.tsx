@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const AsciiCube = () => {
     const preRef = useRef<HTMLPreElement>(null);
@@ -17,11 +17,11 @@ const AsciiCube = () => {
 
     useEffect(() => {
         const density = ' .:-=+*#%@';
-        
+
         // 3D Math Helpers
         const vec3 = (x: number, y: number, z: number) => ({ x, y, z });
         const vec2 = (x: number, y: number) => ({ x, y });
-        
+
         const rotX = (v: any, a: number) => {
             const c = Math.cos(a), s = Math.sin(a);
             return vec3(v.x, v.y * c - v.z * s, v.y * s + v.z * c);
@@ -60,7 +60,7 @@ const AsciiCube = () => {
             const rot = { x: t * 0.3, y: t * 0.5, z: t * 0.2 };
             const d = 2.5;
             const zOffs = 4.5;
-            
+
             const projected = vertices.map(v => {
                 let vt = rotX(v, rot.x);
                 vt = rotY(vt, rot.y);
