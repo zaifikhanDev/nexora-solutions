@@ -10,8 +10,8 @@ const WhyNexora = () => {
     ];
 
     return (
-        <section id="why" style={{ padding: '120px 0', backgroundColor: 'var(--navy-mid)' }}>
-            <div className="container" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 1fr', gap: '6rem', alignItems: 'center' }}>
+        <section id="why" style={{ padding: 'clamp(4rem, 10vw, 7.5rem) 0', backgroundColor: 'var(--navy-mid)' }}>
+            <div className="container grid-why">
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -20,7 +20,7 @@ const WhyNexora = () => {
                     <span className="section-tag"></span>
                     <h2 className="section-title">Built for <span>Performance</span></h2>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', marginTop: '3rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', marginTop: '2rem' }}>
                         {features.map((feature, i) => (
                             <div key={i} style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
                                 <div style={{
@@ -47,6 +47,7 @@ const WhyNexora = () => {
                     initial={{ opacity: 0, x: 30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
+                    style={{ width: '100%', overflow: 'hidden' }}
                 >
                     <Terminal />
                 </motion.div>

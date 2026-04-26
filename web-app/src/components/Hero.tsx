@@ -4,15 +4,7 @@ import AsciiCube from './AsciiCube';
 
 const Hero = () => {
     return (
-        <header id="home" style={{ 
-            position: 'relative', 
-            minHeight: '100vh', 
-            padding: '8rem 4rem 4rem', 
-            overflow: 'hidden', 
-            backgroundColor: 'var(--navy-deep)',
-            display: 'flex',
-            alignItems: 'center'
-        }}>
+        <header id="home" className="hero-header">
             {/* Background Layers */}
             <AsciiCube />
             <div className="hero-grid"></div>
@@ -36,8 +28,8 @@ const Hero = () => {
                     left: '5%', // Positioned behind the text on the left
                     top: '40%',
                     transform: 'translateY(-50%)',
-                    width: '700px',
-                    height: '700px',
+                    width: 'clamp(300px, 50vw, 700px)',
+                    height: 'clamp(300px, 50vw, 700px)',
                     pointerEvents: 'none',
                     zIndex: 0,
                     filter: 'blur(2px)' // Creating that depth-of-field effect behind text
@@ -51,7 +43,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    style={{ maxWidth: '800px' }}
+                    style={{ maxWidth: '800px', margin: '0 auto' }}
                 >
                     <div style={{ 
                         display: 'inline-flex', 
@@ -68,24 +60,31 @@ const Hero = () => {
                         </span>
                     </div>
 
-                    <h1 className="orbitron" style={{ fontSize: '4.5rem', lineHeight: 1.1, marginBottom: '2rem', fontWeight: 900 }}>
+                    <h1 className="orbitron hero-title" style={{ 
+                        fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', 
+                        lineHeight: 1.1, 
+                        marginBottom: '2rem', 
+                        fontWeight: 900 
+                    }}>
                         We Build <br />
                         <span className="section-title"><span>Digital Systems</span></span> <br />
                         That Scale.
                     </h1>
 
                     <p style={{ 
-                        fontSize: '1.2rem', 
+                        fontSize: 'clamp(1rem, 4vw, 1.2rem)', 
                         color: 'var(--text-muted)', 
                         marginBottom: '3rem', 
                         maxWidth: '600px',
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
                         fontFamily: 'Rajdhani',
                         fontWeight: 400
                     }}>
                         Nexora Digital delivers premium automation, ERP, POS, and custom software solutions engineered for enterprise performance and built for the future.
                     </p>
 
-                    <div style={{ display: 'flex', gap: '1.5rem' }}>
+                    <div className="hero-btns" style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                         <a href="#services" className="btn btn-primary">Explore Services</a>
                         <a href="#about" className="btn btn-outline">View Our Work</a>
                     </div>

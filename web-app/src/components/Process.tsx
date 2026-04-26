@@ -16,18 +16,21 @@ const Process = () => {
 
                 <div style={{ position: 'relative', marginTop: '6rem' }}>
                     {/* Connector Line */}
-                    <div style={{
-                        position: 'absolute',
-                        top: '40px',
-                        left: '10%',
-                        right: '10%',
-                        height: '1px',
-                        background: 'linear-gradient(90deg, transparent, var(--cyan), var(--blue), var(--cyan), transparent)',
-                        opacity: 0.3,
-                        zIndex: 0
-                    }} />
+                    <div 
+                        className="desktop-menu" // Using desktop-menu as a proxy for "show on desktop only"
+                        style={{
+                            position: 'absolute',
+                            top: '40px',
+                            left: '10%',
+                            right: '10%',
+                            height: '1px',
+                            background: 'linear-gradient(90deg, transparent, var(--cyan), var(--blue), var(--cyan), transparent)',
+                            opacity: 0.3,
+                            zIndex: 0
+                        }} 
+                    />
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem', position: 'relative', zIndex: 1 }}>
+                    <div className="grid-4" style={{ position: 'relative', zIndex: 1 }}>
                         {steps.map((step, index) => (
                             <motion.div
                                 key={step.id}

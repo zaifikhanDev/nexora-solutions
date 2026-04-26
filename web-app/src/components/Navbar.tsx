@@ -70,14 +70,41 @@ const Navbar = () => {
                             </li>
                         ))}
                     </ul>
-                    <a href="#contact" className="btn btn-outline" style={{ padding: '0.6rem 1.8rem', fontSize: '0.8rem' }}>
+                    <a href="#contact" className="btn btn-outline desktop-menu" style={{ padding: '0.6rem 1.8rem', fontSize: '0.8rem' }}>
                         Get a Quote
                     </a>
                     
-                    <div className="mobile-menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)} style={{ display: 'none', cursor: 'pointer', color: 'var(--cyan)' }}>
-                        {isMenuOpen ? <X /> : <Menu />}
+                    <div className="mobile-menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)} style={{ display: 'none', cursor: 'pointer', color: 'var(--cyan)', zIndex: 1001 }}>
+                        {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
                     </div>
                 </div>
+            </div>
+
+            {/* Mobile Menu Overlay */}
+            <div className={`mobile-nav-overlay ${isMenuOpen ? 'open' : ''}`}>
+                {navLinks.map((link, i) => (
+                    <motion.a 
+                        key={i}
+                        href={link.href} 
+                        className="mobile-nav-link"
+                        onClick={() => setIsMenuOpen(false)}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={isMenuOpen ? { opacity: 1, y: 0 } : {}}
+                        transition={{ delay: i * 0.1 }}
+                    >
+                        {link.label}
+                    </motion.a>
+                ))}
+                <motion.a 
+                    href="#contact" 
+                    className="btn btn-primary"
+                    onClick={() => setIsMenuOpen(false)}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isMenuOpen ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: navLinks.length * 0.1 }}
+                >
+                    Get a Quote
+                </motion.a>
             </div>
             
             <style>{`
@@ -89,5 +116,6 @@ const Navbar = () => {
         </nav>
     );
 };
+
 
 export default Navbar;

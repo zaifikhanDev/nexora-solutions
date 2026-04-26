@@ -20,9 +20,7 @@ const Services = () => {
                 <span className="section-tag"></span>
                 <h2 className="section-title">Comprehensive <span>Digital Services</span></h2>
                 
-                <div style={{ 
-                    display: 'grid', 
-                    gridTemplateColumns: 'repeat(3, 1fr)', 
+                <div className="grid-3" style={{ 
                     gap: '1.5px', 
                     backgroundColor: 'rgba(0, 212, 255, 0.15)',
                     border: '1.5px solid rgba(0, 212, 255, 0.15)'
@@ -36,7 +34,7 @@ const Services = () => {
                             transition={{ delay: index * 0.1 }}
                             whileHover={{ backgroundColor: 'var(--navy-card)' }}
                             style={{ 
-                                padding: '3.5rem 3rem', 
+                                padding: 'clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem)', 
                                 backgroundColor: 'var(--navy-mid)', 
                                 position: 'relative',
                                 overflow: 'hidden',

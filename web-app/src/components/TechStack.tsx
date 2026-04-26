@@ -13,7 +13,7 @@ const TechStack = () => {
                 <span className="section-tag"></span>
                 <h2 className="section-title">The Tools We Use to <span>Build</span></h2>
                 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '1rem', marginTop: '3rem' }}>
+                <div className="grid-6" style={{ marginTop: '3rem' }}>
                     {techs.map((tech, index) => (
                         <motion.div 
                             key={tech}
@@ -23,7 +23,7 @@ const TechStack = () => {
                             transition={{ delay: index * 0.05 }}
                             whileHover={{ y: -4, borderColor: 'var(--cyan)', background: 'rgba(0, 212, 255, 0.03)' }}
                             style={{ 
-                                padding: '2rem 1rem', 
+                                padding: '1.5rem 1rem', 
                                 background: 'var(--navy-mid)', 
                                 border: '1px solid var(--border)', 
                                 borderRadius: '8px',

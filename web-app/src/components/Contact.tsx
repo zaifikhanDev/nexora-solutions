@@ -34,27 +34,27 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" style={{ background: 'var(--dark)', padding: '100px 0', color: 'var(--white)' }}>
+        <section id="contact" style={{ background: 'var(--navy-deep)', padding: 'clamp(4rem, 10vw, 7.5rem) 0', color: 'var(--text-primary)' }}>
             <div className="container">
-                <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 1fr', gap: '6rem' }}>
+                <div className="grid-contact">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <div style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1.5rem' }}>Nexora<span style={{ color: 'var(--secondary)' }}>Digital</span></div>
-                        <p style={{ opacity: 0.7, marginBottom: '2rem', maxWidth: '400px' }}>
+                        <div className="orbitron" style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '1.5rem' }}>NEXORA<span style={{ color: 'var(--cyan)' }}> DIGITAL</span></div>
+                        <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', maxWidth: '400px' }}>
                             Let's Digitize Your Business. Partner with us for smarter solutions.
                         </p>
                         <div style={{ marginBottom: '2.5rem' }}>
                             <p style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                <Mail size={18} color="var(--secondary)" /> xaifikhan768@gmail.com
+                                <Mail size={18} color="var(--cyan)" /> xaifikhan768@gmail.com
                             </p>
                             <p style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                <Phone size={18} color="var(--secondary)" /> +92 322 833 2623
+                                <Phone size={18} color="var(--cyan)" /> +92 322 833 2623
                             </p>
                         </div>
-                        <a href="https://wa.me/923228332623" target="_blank" rel="noopener noreferrer" className="btn" style={{ background: '#25D366', color: 'var(--white)', display: 'inline-flex', alignItems: 'center', gap: '10px', borderRadius: '12px' }}>
+                        <a href="https://wa.me/923228332623" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: '#25D366', border: 'none' }}>
                             <MessageCircle size={20} /> Chat via WhatsApp
                         </a>
                     </motion.div>
@@ -63,9 +63,9 @@ const Contact = () => {
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '3rem', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.1)' }}
+                        style={{ background: 'var(--navy-mid)', padding: 'clamp(1.5rem, 5vw, 3rem)', borderRadius: '20px', border: '1px solid var(--border)' }}
                     >
-                        <h3 style={{ marginBottom: '2rem', fontSize: '1.8rem' }}>Contact Us</h3>
+                        <h3 className="orbitron" style={{ marginBottom: '2rem', fontSize: '1.8rem' }}>Contact Us</h3>
                         <form onSubmit={handleSubmit}>
                             <div style={{ marginBottom: '1.5rem' }}>
                                 <input
@@ -74,7 +74,7 @@ const Contact = () => {
                                     required
                                     value={formState.name}
                                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                                    style={{ width: '100%', padding: '1.2rem', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)', color: 'var(--white)', borderRadius: '10px', outline: 'none' }}
+                                    style={{ width: '100%', padding: '1.2rem', background: 'var(--navy-deep)', border: '1px solid var(--border)', color: 'var(--text-primary)', borderRadius: '4px', outline: 'none', fontFamily: 'Rajdhani' }}
                                 />
                             </div>
                             <div style={{ marginBottom: '1.5rem' }}>
@@ -84,7 +84,7 @@ const Contact = () => {
                                     required
                                     value={formState.email}
                                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                                    style={{ width: '100%', padding: '1.2rem', background: 'rgba(0, 0, 0, 0.2)', border: '1px solid var(--border)', color: 'var(--white)', borderRadius: '4px', outline: 'none', fontFamily: 'Rajdhani', fontWeight: 500 }}
+                                    style={{ width: '100%', padding: '1.2rem', background: 'var(--navy-deep)', border: '1px solid var(--border)', color: 'var(--text-primary)', borderRadius: '4px', outline: 'none', fontFamily: 'Rajdhani' }}
                                 />
                             </div>
                             <div style={{ marginBottom: '1.5rem' }}>
@@ -94,7 +94,7 @@ const Contact = () => {
                                     required
                                     value={formState.message}
                                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                                    style={{ width: '100%', padding: '1.2rem', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)', color: 'var(--white)', borderRadius: '10px', outline: 'none', resize: 'none' }}
+                                    style={{ width: '100%', padding: '1.2rem', background: 'var(--navy-deep)', border: '1px solid var(--border)', color: 'var(--text-primary)', borderRadius: '4px', outline: 'none', resize: 'none', fontFamily: 'Rajdhani' }}
                                 />
                             </div>
                             <button type="submit" disabled={isSubmitting} className="btn btn-primary" style={{ width: '100%' }}>

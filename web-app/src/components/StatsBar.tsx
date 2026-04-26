@@ -27,7 +27,7 @@ const StatItem = ({ value, label, suffix = "" }: { value: number, label: string,
     }, [isInView, value]);
 
     return (
-        <div ref={ref} style={{ textAlign: 'center', padding: '2rem', borderRight: '1px solid var(--border)' }}>
+        <div ref={ref} className="stat-item" style={{ textAlign: 'center', padding: '2rem' }}>
             <h3 className="orbitron" style={{ fontSize: '2.5rem', background: 'linear-gradient(90deg, var(--cyan), var(--blue))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '0.5rem' }}>
                 {count}{suffix}
             </h3>
@@ -41,7 +41,7 @@ const StatItem = ({ value, label, suffix = "" }: { value: number, label: string,
 const StatsBar = () => {
     return (
         <div style={{ background: 'var(--navy-mid)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden' }}>
-            <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', padding: 0 }}>
+            <div className="container grid-4" style={{ display: 'grid', padding: 0 }}>
                 <StatItem value={50} label="Projects Delivered" suffix="+" />
                 <StatItem value={30} label="Enterprise Clients" suffix="+" />
                 <StatItem value={9} label="Core Services" />
