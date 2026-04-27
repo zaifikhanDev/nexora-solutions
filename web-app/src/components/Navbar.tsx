@@ -108,7 +108,7 @@ const Navbar = () => {
             </div>
             
             <style>{`
-                @media (max-width: 992px) {
+                @media (max-width: 1024px) {
                     .desktop-menu { display: none !important; }
                     .mobile-menu-btn { display: block !important; }
                 }

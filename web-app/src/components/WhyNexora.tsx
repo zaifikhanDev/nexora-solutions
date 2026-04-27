@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { Clock, Shield, BarChart } from 'lucide-react';
 import Terminal from './Terminal';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const WhyNexora = () => {
+    const revealRef = useScrollReveal();
     const features = [
         { icon: <Clock />, title: 'On-Time Delivery', desc: 'Rigorous sprint planning ensures every project ships on schedule.' },
         { icon: <Shield />, title: 'Enterprise-Grade Quality', desc: 'Every line reviewed, every system stress-tested.' },
@@ -10,9 +12,10 @@ const WhyNexora = () => {
     ];
 
     return (
-        <section id="why" style={{ padding: 'clamp(4rem, 10vw, 7.5rem) 0', backgroundColor: 'var(--navy-mid)' }}>
+        <section ref={revealRef} id="why" style={{ padding: 'clamp(4rem, 10vw, 7.5rem) 0', backgroundColor: 'var(--navy-mid)' }}>
             <div className="container grid-why">
                 <motion.div
+                    className="reveal-item"
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -44,6 +47,7 @@ const WhyNexora = () => {
                 </motion.div>
 
                 <motion.div
+                    className="reveal-item"
                     initial={{ opacity: 0, x: 30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}

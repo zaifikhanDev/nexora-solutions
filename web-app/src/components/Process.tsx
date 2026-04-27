@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const steps = [
     { id: '01', title: 'Discovery', desc: 'Deep-dive into goals, tech landscape, and user needs.' },
@@ -8,11 +9,14 @@ const steps = [
 ];
 
 const Process = () => {
+    const revealRef = useScrollReveal();
     return (
-        <section id="process" style={{ padding: '100px 0', position: 'relative' }}>
+        <section ref={revealRef} id="process" style={{ padding: '100px 0', position: 'relative' }}>
             <div className="container">
-                <span className="section-tag"></span>
-                <h2 className="section-title">Our Engineered <span>Process</span></h2>
+                <div className="reveal-item">
+                    <span className="section-tag"></span>
+                    <h2 className="section-title">Our Engineered <span>Process</span></h2>
+                </div>
 
                 <div style={{ position: 'relative', marginTop: '6rem' }}>
                     {/* Connector Line */}
@@ -34,6 +38,7 @@ const Process = () => {
                         {steps.map((step, index) => (
                             <motion.div
                                 key={step.id}
+                                className="reveal-item"
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}

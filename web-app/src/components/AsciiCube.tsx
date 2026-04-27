@@ -110,7 +110,7 @@ const AsciiCube = () => {
                 padding: 0,
                 fontSize: '12px',
                 lineHeight: '18px',
-                color: 'var(--cyan)',
+                color: 'rgba(255, 255, 255, 0.8)',
                 opacity: 0.15,
                 pointerEvents: 'none',
                 zIndex: 0,

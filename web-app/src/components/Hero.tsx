@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import FragmentedLogo from './FragmentedLogo';
 import AsciiCube from './AsciiCube';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Hero = () => {
+    const revealRef = useScrollReveal();
     return (
-        <header id="home" className="hero-header">
+        <header ref={revealRef as any} id="home" className="hero-header">
             {/* Background Layers */}
             <AsciiCube />
             <div className="hero-grid"></div>
@@ -40,51 +42,54 @@ const Hero = () => {
 
             <div className="container" style={{ position: 'relative', zIndex: 2 }}>
                 <motion.div 
+                    className="reveal-item"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    style={{ maxWidth: '800px', margin: '0 auto' }}
+                    style={{ maxWidth: '800px', margin: '0 auto', width: '100%' }}
                 >
                     <div style={{ 
                         display: 'inline-flex', 
                         alignItems: 'center', 
-                        padding: '0.4rem 1.2rem', 
+                        padding: '0.4rem 1rem', 
                         border: '1px solid var(--cyan)', 
                         clipPath: 'polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%)',
-                        marginBottom: '2rem',
-                        background: 'rgba(0, 212, 255, 0.05)'
+                        marginBottom: '1.5rem',
+                        background: 'rgba(0, 212, 255, 0.05)',
+                        maxWidth: '100%'
                     }}>
                         <span className="pulsing-dot"></span>
-                        <span className="mono" style={{ fontSize: '0.75rem', letterSpacing: '1px', color: 'var(--cyan)', textTransform: 'uppercase' }}>
+                        <span className="mono" style={{ fontSize: 'clamp(0.6rem, 2.5vw, 0.75rem)', letterSpacing: '1px', color: 'var(--cyan)', textTransform: 'uppercase' }}>
                             Powering Smart Businesses
                         </span>
                     </div>
 
                     <h1 className="orbitron hero-title" style={{ 
-                        fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', 
+                        fontSize: 'clamp(2.2rem, 9vw, 4.5rem)', 
                         lineHeight: 1.1, 
-                        marginBottom: '2rem', 
+                        marginBottom: '1.5rem', 
                         fontWeight: 900 
                     }}>
                         We Build <br />
-                        <span className="section-title"><span>Digital Systems</span></span> <br />
+                        <span className="section-title" style={{ marginBottom: 0 }}><span>Digital Systems</span></span> <br />
                         That Scale.
                     </h1>
 
                     <p style={{ 
-                        fontSize: 'clamp(1rem, 4vw, 1.2rem)', 
+                        fontSize: 'clamp(0.95rem, 4vw, 1.1rem)', 
                         color: 'var(--text-muted)', 
-                        marginBottom: '3rem', 
+                        marginBottom: '2.5rem', 
                         maxWidth: '600px',
                         marginLeft: 'auto',
                         marginRight: 'auto',
                         fontFamily: 'Rajdhani',
-                        fontWeight: 400
+                        fontWeight: 400,
+                        lineHeight: 1.5
                     }}>
-                        Nexora Digital delivers premium automation, ERP, POS, and custom software solutions engineered for enterprise performance and built for the future.
+                        Nexora Digital delivers premium automation, ERP, POS, and custom software solutions engineered for enterprise performance.
                     </p>
 
-                    <div className="hero-btns" style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                    <div className="hero-btns" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                         <a href="#services" className="btn btn-primary">Explore Services</a>
                         <a href="#about" className="btn btn-outline">View Our Work</a>
                     </div>

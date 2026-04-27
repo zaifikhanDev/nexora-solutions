@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MessageCircle } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Contact = () => {
+    const revealRef = useScrollReveal();
     const [formState, setFormState] = useState({ name: '', email: '', message: '' });
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -34,10 +36,11 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" style={{ background: 'var(--navy-deep)', padding: 'clamp(4rem, 10vw, 7.5rem) 0', color: 'var(--text-primary)' }}>
+        <section ref={revealRef} id="contact" style={{ background: 'var(--navy-deep)', padding: 'clamp(4rem, 10vw, 7.5rem) 0', color: 'var(--text-primary)' }}>
             <div className="container">
                 <div className="grid-contact">
                     <motion.div
+                        className="reveal-item"
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -48,7 +51,7 @@ const Contact = () => {
                         </p>
                         <div style={{ marginBottom: '2.5rem' }}>
                             <p style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                <Mail size={18} color="var(--cyan)" /> xaifikhan768@gmail.com
+                                <Mail size={18} color="var(--cyan)" /> nexoradigital50@gmail.com
                             </p>
                             <p style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 <Phone size={18} color="var(--cyan)" /> +92 322 833 2623
@@ -60,6 +63,7 @@ const Contact = () => {
                     </motion.div>
 
                     <motion.div
+                        className="reveal-item"
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
